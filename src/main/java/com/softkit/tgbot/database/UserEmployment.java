@@ -1,8 +1,9 @@
 package com.softkit.tgbot.database;
 
-import org.hibernate.annotations.Type;
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Objects;
 
@@ -10,32 +11,29 @@ import java.util.Objects;
 public class UserEmployment {
 
     @Id
-    @Column( unique = true )
-    private long telegramId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int employmentId;
 
-    @Type( type = "int-array" )
-    @Column(
-            columnDefinition = "integer[]"
-    )
-    private int [] arrayEmployments;
+    private String employmentDescription;
 
     public UserEmployment() {
     }
 
-    public UserEmployment(long telegramId ) {
-        this.telegramId = telegramId;
+    public UserEmployment( int employmentId )
+    {
+        this.employmentId = employmentId;
     }
 
-    public long getTelegramId() {
-        return telegramId;
+    public int getEmploymentId() {
+        return employmentId;
     }
 
-    public int[] getArrayEmployments() {
-        return arrayEmployments;
+    public String getEmploymentDescription() {
+        return employmentDescription;
     }
 
-    public void setArrayEmployments(int[] arrayEmployments) {
-        this.arrayEmployments = arrayEmployments;
+    public void setEmploymentDescription(String employmentDescription) {
+        this.employmentDescription = employmentDescription;
     }
 
     @Override
@@ -43,11 +41,11 @@ public class UserEmployment {
         if (this == o) return true;
         if (!(o instanceof UserEmployment)) return false;
         UserEmployment that = (UserEmployment) o;
-        return telegramId == that.telegramId;
+        return employmentId == that.employmentId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(telegramId);
+        return Objects.hash(employmentId);
     }
 }
