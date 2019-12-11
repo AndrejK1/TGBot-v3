@@ -13,26 +13,26 @@ public class UserEnglishLevel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int englishLevelId;
 
-    private String experienceDescription;
+    private String englishLevelDescription;
 
     public UserEnglishLevel() {
     }
 
-    public UserEnglishLevel( String experienceDescription )
-    {
-        this.experienceDescription = experienceDescription;
+    public UserEnglishLevel( String englishLevelDescription ) {
+        this.englishLevelDescription = englishLevelDescription;
     }
+
 
     public int getEnglishLevelId() {
         return englishLevelId;
     }
 
-    public String getExperienceDescription() {
-        return experienceDescription;
+    public String getEnglishLevelDescription() {
+        return englishLevelDescription;
     }
 
-    public void setExperienceDescription(String experienceDescription) {
-        this.experienceDescription = experienceDescription;
+    public void setEnglishLevelDescription(String englishLevelDescription) {
+        this.englishLevelDescription = englishLevelDescription;
     }
 
     @Override
