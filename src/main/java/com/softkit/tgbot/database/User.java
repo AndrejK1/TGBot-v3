@@ -1,9 +1,6 @@
 package com.softkit.tgbot.database;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
@@ -11,8 +8,8 @@ import java.util.Objects;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userId;
+    @Column( unique = true )
+    private int userId;
 
     private int statusId;
     private String candidate;

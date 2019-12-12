@@ -1,5 +1,7 @@
 package com.softkit.tgbot.utils;
 
+import java.sql.Timestamp;
+
 public class BotLogger {
     private static final String logStr = "TELEGRAM BOT LOG:    ";
 

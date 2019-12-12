@@ -1,12 +1,13 @@
 package com.softkit.tgbot.updateProcessor;
 
 import com.pengrad.telegrambot.model.Update;
-import com.softkit.tgbot.database.User;
 import com.softkit.tgbot.utils.BotLogger;
 
 import java.util.List;
 
 public class UpdateProcessor {
+
+    private StatusProcessorFactory spf = new StatusProcessorFactory();
 
     public void process(List<Update> updates) {
 
@@ -17,19 +18,12 @@ public class UpdateProcessor {
 
             for (Update update : updates) {
                 ResponseStatus rs = processUpdate(update);
-                if (rs == ResponseStatus.RESTART) {
-                    // restart bot
-                }
             }
         }
     }
 
     private ResponseStatus processUpdate(Update update) {
-
-
-
-
-        return null;
+        return spf.getStatusProcessor(update).process();
     }
 
 }

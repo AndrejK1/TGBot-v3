@@ -1,5 +1,6 @@
 package com.softkit.tgbot.database;
 
+import jdk.jfr.Name;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
@@ -15,9 +16,7 @@ public class UserEmployments {
     private long telegramId;
 
     @Type( type = "int-array" )
-    @Column(
-            columnDefinition = "integer[]"
-    )
+    @Column( columnDefinition = "integer[]" )
     private int [] arrayEmployments;
 
     public UserEmployments() {

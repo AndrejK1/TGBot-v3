@@ -5,18 +5,29 @@ import com.softkit.tgbot.database.User;
 
 public class StatusProcessorFactory {
 
-    private interface StatusProcessor {
-        ResponseStatus process(Update update);
+    private class HelloProcessor extends StatusProcessor {
+
+
+        public HelloProcessor(Update update) {
+            super(update);
+        }
+
+        @Override
+        ResponseStatus process() {
+            return null;
+        }
+
+        @Override
+        boolean isCorrectData() {
+
+            return false;
+        }
     }
 
+    public StatusProcessor getStatusProcessor(Update update) {
 
-    public static StatusProcessor getStatusProcessor(Update update) {
 
-        return new StatusProcessor() {
-            @Override
-            public ResponseStatus process(Update update) {
-                return null;
-            }
-        };
+        //if (status == 1) from update
+            return new HelloProcessor(update);
     }
 }
