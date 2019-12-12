@@ -4,7 +4,8 @@ public enum ResponseStatus {
 
     COMPLETE(0),
     WRONG_INPUT(1),
-    RESTART(2)
+    EDIT_DATA(2),
+    RESTART(64)
     ;
 
     int status;
